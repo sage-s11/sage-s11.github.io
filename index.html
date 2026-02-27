@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio — Cybersecurity & Infrastructure Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #06080c;
+      --bg2: #0b0e14;
+      --bg3: #10141c;
+      --card: #111622;
+      --border: #1a2030;
+      --text: #e8ecf4;
+      --dim: #6b7a94;
+      --muted: #3a4660;
+      --mint: #34d399;
+      --mint-soft: rgba(52,211,153,0.12);
+      --mint-glow: rgba(52,211,153,0.06);
+      --cyan: #22d3ee;
+      --mono: 'JetBrains Mono', monospace;
+      --sans: 'Outfit', sans-serif;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;font-size:16px;-webkit-font-smoothing:antialiased}
+    body{background:var(--bg);color:var(--text);font-family:var(--sans);overflow-x:hidden}
+    ::selection{background:var(--mint);color:var(--bg)}
+    a{color:var(--mint);text-decoration:none;transition:opacity .2s}
+    a:hover{opacity:.75}
+
+    /* ══════════ TOP BAR ══════════ */
+    .topbar{
+      position:fixed;top:0;left:0;right:0;z-index:50;height:2px;
+      background:linear-gradient(90deg,var(--mint),var(--cyan),var(--mint));
+      background-size:200% 100%;animation:shimmer 4s linear infinite;
+    }
+    @keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
+
+    /* ══════════ CONTAINER ══════════ */
+    .wrap{max-width:1100px;margin:0 auto;padding:0 32px}
+
+    /* ══════════ HERO ══════════ */
+    .hero{
+      min-height:100vh;display:flex;align-items:center;justify-content:space-between;
+      gap:32px;position:relative;overflow:hidden;
+    }
+
+    /* particles */
+    .particles{position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none}
+    .particles span{
+      position:absolute;display:block;width:2px;height:2px;
+      background:var(--mint);border-radius:50%;
+      opacity:0;animation:float 6s ease-in-out infinite;
+    }
+    .particles span:nth-child(1){left:15%;top:20%;animation-delay:0s;animation-duration:7s}
+    .particles span:nth-child(2){left:45%;top:60%;animation-delay:1.2s;animation-duration:5s}
+    .particles span:nth-child(3){left:75%;top:30%;animation-delay:2.4s;animation-duration:8s}
+    .particles span:nth-child(4){left:85%;top:70%;animation-delay:0.6s;animation-duration:6s}
+    .particles span:nth-child(5){left:25%;top:80%;animation-delay:3s;animation-duration:7.5s}
+    .particles span:nth-child(6){left:60%;top:15%;animation-delay:1.8s;animation-duration:5.5s}
+    @keyframes float{
+      0%,100%{opacity:0;transform:translateY(0) scale(1)}
+      20%{opacity:.5}50%{opacity:.3;transform:translateY(-40px) scale(1.5)}80%{opacity:.15}
+    }
+
+    .hero-content{position:relative;z-index:2;flex:1;max-width:600px}
+
+    .hero-label{
+      font-family:var(--mono);font-size:.82rem;color:var(--mint);
+      letter-spacing:.08em;margin-bottom:24px;
+    }
+    .hero-label .cursor{
+      display:inline-block;width:9px;height:18px;background:var(--mint);
+      vertical-align:middle;margin-left:4px;animation:blink 1s step-end infinite;
+    }
+    @keyframes blink{50%{opacity:0}}
+
+    .hero h1{
+      font-size:clamp(3rem,6vw,4.5rem);font-weight:800;
+      line-height:1.08;letter-spacing:-.03em;margin-bottom:28px;
+    }
+    .hero h1 em{font-style:normal;color:var(--mint)}
+
+    .hero-sub{
+      font-size:1.15rem;font-weight:300;color:var(--dim);
+      line-height:1.7;margin-bottom:44px;max-width:500px;
+    }
+
+    .hero-links{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{
+      font-family:var(--mono);font-size:.78rem;font-weight:500;
+      padding:11px 22px;border-radius:8px;
+      display:inline-flex;align-items:center;gap:8px;transition:all .25s;
+    }
+    .btn svg{width:15px;height:15px}
+    .btn-primary{
+      background:var(--mint);color:var(--bg);
+      box-shadow:0 0 24px rgba(52,211,153,.2);
+    }
+    .btn-primary:hover{opacity:1;box-shadow:0 0 40px rgba(52,211,153,.35);transform:translateY(-1px)}
+    .btn-ghost{border:1px solid var(--muted);color:var(--dim);background:transparent}
+    .btn-ghost:hover{opacity:1;border-color:var(--mint);color:var(--mint);background:var(--mint-glow)}
+
+    /* ══════════ HERO PORTRAIT ══════════ */
+    .hero-portrait{
+      position:relative;z-index:2;flex-shrink:0;
+    }
+    .portrait-ring{
+      width:380px;height:380px;border-radius:50%;
+      position:relative;
+      background:conic-gradient(from 180deg,var(--mint),var(--cyan),transparent,var(--mint));
+      padding:3px;
+      animation:none;
+    }
+    @keyframes ring-spin{from{filter:hue-rotate(0deg)}to{filter:hue-rotate(360deg)}}
+
+    .portrait-ring::before{
+      content:'';position:absolute;inset:3px;border-radius:50%;
+      background:var(--bg);z-index:1;
+    }
+    .portrait-ring img{
+      position:relative;z-index:2;
+      width:100%;height:100%;border-radius:50%;
+      object-fit:cover;
+      filter:none;
+    }
+
+    /* outer glow */
+    .hero-portrait::after{
+      content:'';position:absolute;
+      inset:-30px;border-radius:50%;
+      background:radial-gradient(circle,rgba(52,211,153,.08) 0%,transparent 70%);
+      z-index:0;pointer-events:none;
+    }
+
+    /* ══════════ SECTION COMMON ══════════ */
+    section{padding:100px 0}
+    .sec-label{
+      font-family:var(--mono);font-size:.72rem;font-weight:500;
+      letter-spacing:.18em;text-transform:uppercase;
+      color:var(--mint);margin-bottom:48px;
+      display:flex;align-items:center;gap:14px;
+    }
+    .sec-label::after{content:'';flex:1;height:1px;background:var(--border)}
+
+    /* ══════════ FOCUS — 3-col grid ══════════ */
+    .focus-grid{
+      display:grid;grid-template-columns:repeat(3,1fr);
+      gap:2px;background:var(--border);
+      border:1px solid var(--border);border-radius:14px;overflow:hidden;
+    }
+    .focus-cell{
+      background:var(--bg2);padding:32px 28px;
+      text-align:center;transition:background .3s;
+    }
+    .focus-cell:hover{background:var(--bg3)}
+    .focus-cell .icon{font-size:1.6rem;margin-bottom:12px;display:block}
+    .focus-cell h3{font-size:1.05rem;font-weight:600;letter-spacing:-.01em}
+
+    /* ══════════ PROJECTS — minimal grid ══════════ */
+    .projects-grid{
+      display:grid;grid-template-columns:repeat(2,1fr);
+      gap:2px;background:var(--border);
+      border:1px solid var(--border);border-radius:14px;overflow:hidden;
+    }
+    .proj{background:var(--bg2);padding:40px 36px;transition:background .3s;position:relative}
+    .proj:hover{background:var(--bg3)}
+    .proj-name{font-size:1.2rem;font-weight:600;letter-spacing:-.01em;margin-bottom:8px}
+    .proj-tagline{font-size:.92rem;font-weight:300;color:var(--dim);line-height:1.5}
+    .proj-corner{
+      position:absolute;top:16px;right:18px;
+      width:6px;height:6px;border-radius:50%;background:var(--mint);opacity:.5;
+    }
+
+    .private-note{
+      font-family:var(--mono);font-size:.8rem;color:var(--dim);
+      margin-top:24px;padding:14px 20px;
+      border:1px dashed var(--muted);border-radius:8px;
+      display:inline-block;
+    }
+
+    /* ══════════ SKILLS — horizontal flow ══════════ */
+    .skills-flow{display:flex;flex-wrap:wrap;gap:10px}
+    .skill{
+      font-family:var(--mono);font-size:.82rem;font-weight:400;
+      padding:10px 20px;border:1px solid var(--border);border-radius:8px;
+      color:var(--dim);background:var(--bg2);transition:all .25s;
+    }
+    .skill:hover{border-color:var(--mint);color:var(--mint);background:var(--mint-glow)}
+
+    /* ══════════ STATS ROW ══════════ */
+    .stats-row{
+      display:grid;grid-template-columns:repeat(4,1fr);
+      gap:2px;background:var(--border);
+      border:1px solid var(--border);border-radius:14px;overflow:hidden;
+      margin-bottom:48px;
+    }
+    .stat{background:var(--bg2);padding:28px 20px;text-align:center}
+    .stat-val{font-family:var(--sans);font-size:1.8rem;font-weight:700;color:var(--mint);letter-spacing:-.02em}
+    .stat-key{font-family:var(--mono);font-size:.68rem;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-top:4px}
+
+    /* ══════════ FOOTER ══════════ */
+    footer{padding:48px 0;border-top:1px solid var(--border);text-align:center}
+    .foot-links{display:flex;justify-content:center;gap:28px;margin-bottom:16px}
+    .foot-links a{font-family:var(--mono);font-size:.8rem;color:var(--muted)}
+    .foot-links a:hover{color:var(--mint);opacity:1}
+    .foot-note{font-size:.72rem;color:var(--muted);font-family:var(--mono);opacity:.5}
+
+    /* ══════════ RESPONSIVE ══════════ */
+    @media(max-width:900px){
+      .hero{flex-direction:column-reverse;text-align:center;gap:40px;padding-top:100px}
+      .hero-content{max-width:100%}
+      .hero-sub{margin-left:auto;margin-right:auto}
+      .hero-links{justify-content:center}
+      .portrait-ring{width:240px;height:240px}
+      .focus-grid{grid-template-columns:repeat(2,1fr)}
+    }
+    @media(max-width:680px){
+      .wrap{padding:0 18px}
+      section{padding:64px 0}
+      .hero h1{font-size:2.4rem}
+      .projects-grid{grid-template-columns:1fr}
+      .stats-row{grid-template-columns:repeat(2,1fr)}
+      .focus-grid{grid-template-columns:1fr}
+      .focus-cell{padding:22px 20px}
+      .portrait-ring{width:200px;height:200px}
+    }
+  </style>
+</head>
+<body>
+<div class="topbar"></div>
+
+<!-- ══════════ HERO ══════════ -->
+<div class="wrap">
+  <div class="hero">
+    <div class="particles">
+      <span></span><span></span><span></span>
+      <span></span><span></span><span></span>
+    </div>
+    <div class="hero-content">
+      <div class="hero-label">$ whoami<span class="cursor"></span></div>
+      <h1>I build tools<br>that see what<br><em>networks hide</em>.</h1>
+      <p class="hero-sub">
+        Cybersecurity & infrastructure engineer. Protocol analysis,
+        malware detection, and network security tooling — at the packet level.
+      </p>
+      <div class="hero-links">
+        <a href="https://github.com/YOUR_USERNAME" class="btn btn-primary" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          GitHub
+        </a>
+        <a href="https://leetcode.com/YOUR_USERNAME" class="btn btn-ghost" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 18l6-6-6-6"/><path d="M8 6l-6 6 6 6"/></svg>
+          LeetCode
+        </a>
+        <a href="https://linkedin.com/in/YOUR_USERNAME" class="btn btn-ghost" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          LinkedIn
+        </a>
+        <a href="https://dev.to/YOUR_USERNAME" class="btn btn-ghost" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="18" rx="2"/><path d="M7 8h3c.5 0 1 .5 1 1v6c0 .5-.5 1-1 1H7V8z"/><path d="M14 8h1.5l1.5 4-1.5 4H14V8z"/></svg>
+          Dev.to
+        </a>
+        <a href="https://hashnode.com/@YOUR_USERNAME" class="btn btn-ghost" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/></svg>
+          Hashnode
+        </a>
+        <a href="mailto:your@email.com" class="btn btn-ghost">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          Contact
+        </a>
+      </div>
+    </div>
+    <div class="hero-portrait">
+      <div class="portrait-ring">
+        <img src="profile.jpg" alt="">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ WHAT I DO ══════════ -->
+<section>
+  <div class="wrap">
+    <div class="sec-label">What I Do</div>
+    <div class="focus-grid">
+      <div class="focus-cell"><span class="icon">🔬</span><h3>Protocol Reverse Engineering</h3></div>
+      <div class="focus-cell"><span class="icon">🛡</span><h3>Malware Traffic Detection</h3></div>
+      <div class="focus-cell"><span class="icon">🔐</span><h3>TLS Fingerprinting</h3></div>
+      <div class="focus-cell"><span class="icon">📡</span><h3>TCP/IP Stack Analysis</h3></div>
+      <div class="focus-cell"><span class="icon">🌐</span><h3>DNS & IPAM Automation</h3></div>
+      <div class="focus-cell"><span class="icon">🔎</span><h3>Network Forensics</h3></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ PROJECTS ══════════ -->
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-label">Projects</div>
+    <div class="stats-row">
+      <div class="stat"><div class="stat-val">Java</div><div class="stat-key">Primary Language</div></div>
+      <div class="stat"><div class="stat-val">~15K</div><div class="stat-key">Lines of Code</div></div>
+      <div class="stat"><div class="stat-val">95%</div><div class="stat-key">Test Coverage</div></div>
+      <div class="stat"><div class="stat-val">4</div><div class="stat-key">Security Tools</div></div>
+    </div>
+    <div class="projects-grid">
+      <div class="proj">
+        <div class="proj-corner"></div>
+        <div class="proj-name">JA3 Malware Intelligence Engine</div>
+        <div class="proj-tagline">Passive TLS fingerprinting for C2 detection — zero decryption.</div>
+      </div>
+      <div class="proj">
+        <div class="proj-corner"></div>
+        <div class="proj-name">TCP/IP Fingerprinting Engine</div>
+        <div class="proj-tagline">OS identification from raw packet behavior alone.</div>
+      </div>
+      <div class="proj">
+        <div class="proj-corner"></div>
+        <div class="proj-name">Protocol Reverse Engineering Engine</div>
+        <div class="proj-tagline">Automated binary protocol inference from packet captures.</div>
+      </div>
+      <div class="proj">
+        <div class="proj-corner"></div>
+        <div class="proj-name">Enterprise DDI Platform</div>
+        <div class="proj-tagline">DNS/DHCP/IPAM — built to replace commercial solutions.</div>
+      </div>
+    </div>
+    <div class="private-note">
+      🔒 Source code is private — live demos & architecture walkthroughs available on request.
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ SKILLS ══════════ -->
+<section>
+  <div class="wrap">
+    <div class="sec-label">Stack</div>
+    <div class="skills-flow">
+      <span class="skill">Java</span>
+      <span class="skill">Python</span>
+      <span class="skill">PostgreSQL</span>
+      <span class="skill">Bash</span>
+      <span class="skill">pcap4j</span>
+      <span class="skill">BIND9</span>
+      <span class="skill">Podman</span>
+      <span class="skill">WireGuard</span>
+      <span class="skill">BPF</span>
+      <span class="skill">Linux</span>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-links">
+      <a href="https://github.com/YOUR_USERNAME" target="_blank">GitHub</a>
+      <a href="https://leetcode.com/YOUR_USERNAME" target="_blank">LeetCode</a>
+      <a href="https://linkedin.com/in/YOUR_USERNAME" target="_blank">LinkedIn</a>
+      <a href="https://dev.to/YOUR_USERNAME" target="_blank">Dev.to</a>
+      <a href="https://hashnode.com/@YOUR_USERNAME" target="_blank">Hashnode</a>
+      <a href="mailto:your@email.com">Email</a>
+    </div>
+    <div class="foot-note">No frameworks were harmed.</div>
+  </div>
+</footer>
+</body>
+</html>
