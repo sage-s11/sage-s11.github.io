@@ -12,8 +12,8 @@
       --bg: #06080c;
       --bg2: #0b0e14;
       --bg3: #10141c;
-      --card: #111622;
       --border: #1a2030;
+      --border-b: #1e2638;
       --text: #e8ecf4;
       --dim: #6b7a94;
       --muted: #3a4660;
@@ -28,218 +28,206 @@
     html{scroll-behavior:smooth;font-size:16px;-webkit-font-smoothing:antialiased}
     body{background:var(--bg);color:var(--text);font-family:var(--sans);overflow-x:hidden}
     ::selection{background:var(--mint);color:var(--bg)}
-    a{color:var(--mint);text-decoration:none;transition:opacity .2s}
-    a:hover{opacity:.75}
+    a{color:var(--mint);text-decoration:none;transition:all .2s}
+    a:hover{opacity:.8}
 
-    /* ══════════ TOP BAR ══════════ */
-    .topbar{
-      position:fixed;top:0;left:0;right:0;z-index:50;height:2px;
-      background:linear-gradient(90deg,var(--mint),var(--cyan),var(--mint));
-      background-size:200% 100%;animation:shimmer 4s linear infinite;
-    }
+    /* ══ TOP BAR ══ */
+    .topbar{position:fixed;top:0;left:0;right:0;z-index:50;height:2px;background:linear-gradient(90deg,var(--mint),var(--cyan),var(--mint));background-size:200% 100%;animation:shimmer 4s linear infinite}
     @keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
 
-    /* ══════════ CONTAINER ══════════ */
     .wrap{max-width:1100px;margin:0 auto;padding:0 32px}
 
-    /* ══════════ HERO ══════════ */
-    .hero{
-      min-height:100vh;display:flex;align-items:center;justify-content:space-between;
-      gap:32px;position:relative;overflow:hidden;
-    }
+    /* ══ HERO — kept exactly as liked ══ */
+    .hero{min-height:100vh;display:flex;align-items:center;justify-content:space-between;gap:32px;position:relative;overflow:hidden}
 
-    /* particles */
     .particles{position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none}
-    .particles span{
-      position:absolute;display:block;width:2px;height:2px;
-      background:var(--mint);border-radius:50%;
-      opacity:0;animation:float 6s ease-in-out infinite;
-    }
-    .particles span:nth-child(1){left:15%;top:20%;animation-delay:0s;animation-duration:7s}
+    .particles span{position:absolute;display:block;width:2px;height:2px;background:var(--mint);border-radius:50%;opacity:0;animation:float 6s ease-in-out infinite}
+    .particles span:nth-child(1){left:15%;top:20%;animation-duration:7s}
     .particles span:nth-child(2){left:45%;top:60%;animation-delay:1.2s;animation-duration:5s}
     .particles span:nth-child(3){left:75%;top:30%;animation-delay:2.4s;animation-duration:8s}
     .particles span:nth-child(4){left:85%;top:70%;animation-delay:0.6s;animation-duration:6s}
     .particles span:nth-child(5){left:25%;top:80%;animation-delay:3s;animation-duration:7.5s}
     .particles span:nth-child(6){left:60%;top:15%;animation-delay:1.8s;animation-duration:5.5s}
-    @keyframes float{
-      0%,100%{opacity:0;transform:translateY(0) scale(1)}
-      20%{opacity:.5}50%{opacity:.3;transform:translateY(-40px) scale(1.5)}80%{opacity:.15}
-    }
+    @keyframes float{0%,100%{opacity:0;transform:translateY(0) scale(1)}20%{opacity:.5}50%{opacity:.3;transform:translateY(-40px) scale(1.5)}80%{opacity:.15}}
 
     .hero-content{position:relative;z-index:2;flex:1;max-width:600px}
 
-    .hero-label{
-      font-family:var(--mono);font-size:.82rem;color:var(--mint);
-      letter-spacing:.08em;margin-bottom:24px;
-    }
-    .hero-label .cursor{
-      display:inline-block;width:9px;height:18px;background:var(--mint);
-      vertical-align:middle;margin-left:4px;animation:blink 1s step-end infinite;
-    }
+    .hero-label{font-family:var(--mono);font-size:.82rem;color:var(--mint);letter-spacing:.08em;margin-bottom:24px}
+    .hero-label .cursor{display:inline-block;width:9px;height:18px;background:var(--mint);vertical-align:middle;margin-left:4px;animation:blink 1s step-end infinite}
     @keyframes blink{50%{opacity:0}}
 
-    .hero h1{
-      font-size:clamp(3rem,6vw,4.5rem);font-weight:800;
-      line-height:1.08;letter-spacing:-.03em;margin-bottom:28px;
-    }
+    .hero h1{font-size:clamp(3rem,6vw,4.5rem);font-weight:800;line-height:1.08;letter-spacing:-.03em;margin-bottom:28px}
     .hero h1 em{font-style:normal;color:var(--mint)}
 
-    .hero-sub{
-      font-size:1.15rem;font-weight:300;color:var(--dim);
-      line-height:1.7;margin-bottom:44px;max-width:500px;
-    }
+    .hero-sub{font-size:1.15rem;font-weight:300;color:var(--dim);line-height:1.7;margin-bottom:44px;max-width:500px}
 
     .hero-links{display:flex;gap:12px;flex-wrap:wrap}
-    .btn{
-      font-family:var(--mono);font-size:.78rem;font-weight:500;
-      padding:11px 22px;border-radius:8px;
-      display:inline-flex;align-items:center;gap:8px;transition:all .25s;
-    }
+    .btn{font-family:var(--mono);font-size:.78rem;font-weight:500;padding:11px 22px;border-radius:8px;display:inline-flex;align-items:center;gap:8px;transition:all .25s}
     .btn svg{width:15px;height:15px}
-    .btn-primary{
-      background:var(--mint);color:var(--bg);
-      box-shadow:0 0 24px rgba(52,211,153,.2);
-    }
+    .btn-primary{background:var(--mint);color:var(--bg);box-shadow:0 0 24px rgba(52,211,153,.2)}
     .btn-primary:hover{opacity:1;box-shadow:0 0 40px rgba(52,211,153,.35);transform:translateY(-1px)}
     .btn-ghost{border:1px solid var(--muted);color:var(--dim);background:transparent}
     .btn-ghost:hover{opacity:1;border-color:var(--mint);color:var(--mint);background:var(--mint-glow)}
 
-    /* ══════════ HERO PORTRAIT ══════════ */
-    .hero-portrait{
-      position:relative;z-index:2;flex-shrink:0;
-    }
+    /* ══ PORTRAIT — same as liked version ══ */
+    .hero-portrait{position:relative;z-index:2;flex-shrink:0}
+
     .portrait-ring{
-      width:380px;height:380px;border-radius:50%;
-      position:relative;
+      width:380px;height:380px;border-radius:50%;position:relative;
       background:conic-gradient(from 180deg,var(--mint),var(--cyan),transparent,var(--mint));
-      padding:3px;
-      animation:none;
+      padding:3px;animation:none;
     }
-    @keyframes ring-spin{from{filter:hue-rotate(0deg)}to{filter:hue-rotate(360deg)}}
+    .portrait-ring::before{content:'';position:absolute;inset:3px;border-radius:50%;background:var(--bg);z-index:1}
+    .portrait-ring img{position:relative;z-index:2;width:100%;height:100%;border-radius:50%;object-fit:cover;filter:none}
 
-    .portrait-ring::before{
-      content:'';position:absolute;inset:3px;border-radius:50%;
-      background:var(--bg);z-index:1;
-    }
-    .portrait-ring img{
-      position:relative;z-index:2;
-      width:100%;height:100%;border-radius:50%;
-      object-fit:cover;
-      filter:none;
-    }
-
-    /* outer glow */
     .hero-portrait::after{
-      content:'';position:absolute;
-      inset:-30px;border-radius:50%;
+      content:'';position:absolute;inset:-30px;border-radius:50%;
       background:radial-gradient(circle,rgba(52,211,153,.08) 0%,transparent 70%);
       z-index:0;pointer-events:none;
     }
 
-    /* ══════════ SECTION COMMON ══════════ */
-    section{padding:100px 0}
-    .sec-label{
-      font-family:var(--mono);font-size:.72rem;font-weight:500;
-      letter-spacing:.18em;text-transform:uppercase;
-      color:var(--mint);margin-bottom:48px;
-      display:flex;align-items:center;gap:14px;
+    /* ══ NAV ══ */
+    .fnav{
+      position:fixed;top:0;left:0;right:0;z-index:60;
+      display:flex;align-items:center;justify-content:center;gap:6px;
+      padding:16px 24px;
+      background:var(--bg2);
+      border-bottom:1px solid var(--border-b);
     }
-    .sec-label::after{content:'';flex:1;height:1px;background:var(--border)}
+    .fnav a{
+      font-family:var(--sans);font-size:.95rem;font-weight:600;
+      padding:10px 22px;border-radius:10px;
+      color:var(--text);transition:all .2s;
+    }
+    .fnav a:hover{
+      color:var(--bg);background:var(--mint);opacity:1;
+    }
+    @media(max-width:680px){
+      .fnav{gap:2px;padding:12px 10px;flex-wrap:wrap;justify-content:center}
+      .fnav a{font-size:.78rem;padding:8px 14px}
+    }
+    /* ══ SECTIONS ══ */
+    section{padding:56px 0}
+    .sec-head{
+      font-size:1.5rem;font-weight:700;letter-spacing:-.02em;
+      margin-bottom:28px;display:flex;align-items:center;gap:14px;
+    }
+    .sec-head::after{content:'';flex:1;height:1px;background:var(--border)}
 
-    /* ══════════ FOCUS — 3-col grid ══════════ */
-    .focus-grid{
-      display:grid;grid-template-columns:repeat(3,1fr);
-      gap:2px;background:var(--border);
-      border:1px solid var(--border);border-radius:14px;overflow:hidden;
+    /* ══ FOCUS TAGS ══ */
+    .focus-row{display:flex;flex-wrap:wrap;gap:10px}
+    .ftag{
+      font-size:1rem;font-weight:600;padding:12px 22px;border-radius:10px;
+      background:var(--bg2);border:1px solid var(--border);transition:all .3s;
     }
-    .focus-cell{
-      background:var(--bg2);padding:32px 28px;
-      text-align:center;transition:background .3s;
-    }
-    .focus-cell:hover{background:var(--bg3)}
-    .focus-cell .icon{font-size:1.6rem;margin-bottom:12px;display:block}
-    .focus-cell h3{font-size:1.05rem;font-weight:600;letter-spacing:-.01em}
+    .ftag:hover{border-color:var(--mint);color:var(--mint);background:var(--mint-soft)}
 
-    /* ══════════ PROJECTS — minimal grid ══════════ */
-    .projects-grid{
-      display:grid;grid-template-columns:repeat(2,1fr);
-      gap:2px;background:var(--border);
-      border:1px solid var(--border);border-radius:14px;overflow:hidden;
-    }
-    .proj{background:var(--bg2);padding:40px 36px;transition:background .3s;position:relative}
-    .proj:hover{background:var(--bg3)}
-    .proj-name{font-size:1.2rem;font-weight:600;letter-spacing:-.01em;margin-bottom:8px}
-    .proj-tagline{font-size:.92rem;font-weight:300;color:var(--dim);line-height:1.5}
-    .proj-corner{
-      position:absolute;top:16px;right:18px;
-      width:6px;height:6px;border-radius:50%;background:var(--mint);opacity:.5;
-    }
-
-    .private-note{
-      font-family:var(--mono);font-size:.8rem;color:var(--dim);
-      margin-top:24px;padding:14px 20px;
-      border:1px dashed var(--muted);border-radius:8px;
-      display:inline-block;
-    }
-
-    /* ══════════ SKILLS — horizontal flow ══════════ */
-    .skills-flow{display:flex;flex-wrap:wrap;gap:10px}
-    .skill{
-      font-family:var(--mono);font-size:.82rem;font-weight:400;
-      padding:10px 20px;border:1px solid var(--border);border-radius:8px;
-      color:var(--dim);background:var(--bg2);transition:all .25s;
-    }
-    .skill:hover{border-color:var(--mint);color:var(--mint);background:var(--mint-glow)}
-
-    /* ══════════ STATS ROW ══════════ */
-    .stats-row{
+    /* ══ TWO-COL LAYOUT ══ */
+    .two-col{display:grid;grid-template-columns:1fr 1.8fr;gap:40px;align-items:start}
+    .col-sm .focus-col{display:flex;flex-direction:column;gap:8px}
+    .col-sm .ftag{text-align:left}
+    @media(max-width:680px){.two-col{grid-template-columns:1fr}}
+    /* ══ STATS ══ */
+    .stats{
       display:grid;grid-template-columns:repeat(4,1fr);
-      gap:2px;background:var(--border);
-      border:1px solid var(--border);border-radius:14px;overflow:hidden;
-      margin-bottom:48px;
+      gap:1px;background:var(--border);
+      border:1px solid var(--border);border-radius:12px;overflow:hidden;
+      margin-bottom:24px;
     }
-    .stat{background:var(--bg2);padding:28px 20px;text-align:center}
-    .stat-val{font-family:var(--sans);font-size:1.8rem;font-weight:700;color:var(--mint);letter-spacing:-.02em}
-    .stat-key{font-family:var(--mono);font-size:.68rem;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-top:4px}
+    .st{background:var(--bg2);padding:22px 16px;text-align:center}
+    .st strong{font-size:1.8rem;font-weight:700;color:var(--mint);display:block;letter-spacing:-.02em}
+    .st span{font-family:var(--mono);font-size:.65rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em}
 
-    /* ══════════ FOOTER ══════════ */
-    footer{padding:48px 0;border-top:1px solid var(--border);text-align:center}
-    .foot-links{display:flex;justify-content:center;gap:28px;margin-bottom:16px}
-    .foot-links a{font-family:var(--mono);font-size:.8rem;color:var(--muted)}
-    .foot-links a:hover{color:var(--mint);opacity:1}
-    .foot-note{font-size:.72rem;color:var(--muted);font-family:var(--mono);opacity:.5}
+    /* ══ PROJECTS ══ */
+    .pgrid{
+      display:grid;grid-template-columns:repeat(2,1fr);
+      gap:1px;background:var(--border);
+      border:1px solid var(--border);border-radius:12px;overflow:hidden;
+    }
+    .pc{background:var(--bg2);padding:28px 26px;transition:background .3s;position:relative}
+    .pc:hover{background:var(--bg3)}
+    .pc h3{font-size:1.1rem;font-weight:700;margin-bottom:5px;letter-spacing:-.01em}
+    .pc p{font-size:.88rem;font-weight:300;color:var(--dim);line-height:1.5}
+    .pc::after{content:'';position:absolute;top:14px;right:16px;width:5px;height:5px;border-radius:50%;background:var(--mint);opacity:.4}
 
-    /* ══════════ RESPONSIVE ══════════ */
-    @media(max-width:900px){
-      .hero{flex-direction:column-reverse;text-align:center;gap:40px;padding-top:100px}
+    .pnote{
+      font-family:var(--mono);font-size:.8rem;color:var(--dim);
+      margin-top:16px;padding:11px 16px;
+      border:1px dashed var(--muted);border-radius:8px;display:inline-block;
+    }
+
+    /* ══ PUBLISHED ══ */
+    .pub-grid{display:flex;flex-direction:column;gap:10px}
+    .pub-card{
+      display:flex;align-items:center;gap:18px;
+      padding:20px 24px;border:1px solid var(--border);border-radius:10px;
+      background:var(--bg2);transition:all .3s;
+    }
+    .pub-card:hover{border-color:var(--border-b);background:var(--bg3)}
+    .pub-icon{
+      flex-shrink:0;width:40px;height:40px;border-radius:8px;
+      display:flex;align-items:center;justify-content:center;font-size:1.2rem;
+      background:var(--mint-soft);
+    }
+    .pub-body{flex:1;min-width:0}
+    .pub-body h3{font-size:1.05rem;font-weight:700;margin-bottom:2px}
+    .pub-body p{font-size:.85rem;font-weight:300;color:var(--dim);line-height:1.4}
+    .pub-link{
+      flex-shrink:0;font-family:var(--mono);font-size:.7rem;color:var(--mint);
+      display:inline-flex;align-items:center;gap:4px;opacity:.7;
+    }
+    .pub-link:hover{opacity:1}
+    .pub-link svg{width:12px;height:12px}
+
+    /* ══ FOOTER ══ */
+    footer{padding:36px 0;border-top:1px solid var(--border);text-align:center}
+    .fl{display:flex;justify-content:center;gap:22px;margin-bottom:10px;flex-wrap:wrap}
+    .fl a{font-family:var(--mono);font-size:.76rem;color:var(--muted)}
+    .fl a:hover{color:var(--mint);opacity:1}
+    .fn{font-size:.66rem;color:var(--muted);font-family:var(--mono);opacity:.4}
+
+    /* ══ RESPONSIVE ══ */
+    @media(max-width:960px){
+      .hero{flex-direction:column-reverse;text-align:center;gap:36px;padding-top:90px}
       .hero-content{max-width:100%}
       .hero-sub{margin-left:auto;margin-right:auto}
       .hero-links{justify-content:center}
       .portrait-ring{width:240px;height:240px}
-      .focus-grid{grid-template-columns:repeat(2,1fr)}
+      .arc-nav{right:-50px}
     }
     @media(max-width:680px){
       .wrap{padding:0 18px}
-      section{padding:64px 0}
+      section{padding:40px 0}
       .hero h1{font-size:2.4rem}
-      .projects-grid{grid-template-columns:1fr}
-      .stats-row{grid-template-columns:repeat(2,1fr)}
-      .focus-grid{grid-template-columns:1fr}
-      .focus-cell{padding:22px 20px}
-      .portrait-ring{width:200px;height:200px}
+      .portrait-ring{width:180px;height:180px}
+      .arc-nav{position:relative;right:auto;top:auto;transform:none;flex-direction:row;justify-content:center;margin-top:14px}
+      .arc-nav a{font-size:.62rem;padding:7px 13px}
+      .pgrid{grid-template-columns:1fr}
+      .stats{grid-template-columns:repeat(2,1fr)}
+      .ftag{font-size:.9rem;padding:10px 16px}
+      .pub-card{flex-direction:column;align-items:flex-start;gap:10px}
     }
   </style>
 </head>
 <body>
-<div class="topbar"></div>
 
-<!-- ══════════ HERO ══════════ -->
+<nav class="fnav">
+  <a href="#mid">About</a>
+  <a href="#projects">Projects</a>
+  <a href="https://pypi.org/project/dns-rfc-lint/" target="_blank">PyPI ↗</a>
+  <a href="https://www.npmjs.com/package/nfault" target="_blank">npm ↗</a>
+  <a href="#">DoQ Paper</a>
+  <a href="mailto:your@email.com">Contact</a>
+</nav>
+
+<!-- ═══════════════════ HERO ═══════════════════ -->
 <div class="wrap">
   <div class="hero">
     <div class="particles">
       <span></span><span></span><span></span>
       <span></span><span></span><span></span>
     </div>
+
     <div class="hero-content">
       <div class="hero-label">$ whoami<span class="cursor"></span></div>
       <h1>I build tools<br>that see what<br><em>networks hide</em>.</h1>
@@ -248,124 +236,121 @@
         malware detection, and network security tooling — at the packet level.
       </p>
       <div class="hero-links">
-        <a href="https://github.com/YOUR_USERNAME" class="btn btn-primary" target="_blank" rel="noopener">
+        <a href="https://github.com/sage-s11" class="btn btn-primary" target="_blank">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-          GitHub
-        </a>
-        <a href="https://leetcode.com/YOUR_USERNAME" class="btn btn-ghost" target="_blank" rel="noopener">
+          GitHub</a>
+        <a href="https://leetcode.com/YOUR_USERNAME" class="btn btn-ghost" target="_blank">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 18l6-6-6-6"/><path d="M8 6l-6 6 6 6"/></svg>
-          LeetCode
-        </a>
-        <a href="https://linkedin.com/in/YOUR_USERNAME" class="btn btn-ghost" target="_blank" rel="noopener">
+          LeetCode</a>
+        <a href="https://linkedin.com/in/YOUR_USERNAME" class="btn btn-ghost" target="_blank">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-          LinkedIn
-        </a>
-        <a href="https://dev.to/YOUR_USERNAME" class="btn btn-ghost" target="_blank" rel="noopener">
+          LinkedIn</a>
+        <a href="https://dev.to/YOUR_USERNAME" class="btn btn-ghost" target="_blank">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="18" rx="2"/><path d="M7 8h3c.5 0 1 .5 1 1v6c0 .5-.5 1-1 1H7V8z"/><path d="M14 8h1.5l1.5 4-1.5 4H14V8z"/></svg>
-          Dev.to
-        </a>
-        <a href="https://hashnode.com/@YOUR_USERNAME" class="btn btn-ghost" target="_blank" rel="noopener">
+          Dev.to</a>
+        <a href="https://hashnode.com/@YOUR_USERNAME" class="btn btn-ghost" target="_blank">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/></svg>
-          Hashnode
-        </a>
+          Hashnode</a>
         <a href="mailto:your@email.com" class="btn btn-ghost">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-          Contact
-        </a>
+          Contact</a>
       </div>
     </div>
+
     <div class="hero-portrait">
       <div class="portrait-ring">
         <img src="profile.jpg" alt="">
       </div>
+
     </div>
   </div>
 </div>
 
-<!-- ══════════ WHAT I DO ══════════ -->
-<section>
+<section id="mid">
   <div class="wrap">
-    <div class="sec-label">What I Do</div>
-    <div class="focus-grid">
-      <div class="focus-cell"><span class="icon">🔬</span><h3>Protocol Reverse Engineering</h3></div>
-      <div class="focus-cell"><span class="icon">🛡</span><h3>Malware Traffic Detection</h3></div>
-      <div class="focus-cell"><span class="icon">🔐</span><h3>TLS Fingerprinting</h3></div>
-      <div class="focus-cell"><span class="icon">📡</span><h3>TCP/IP Stack Analysis</h3></div>
-      <div class="focus-cell"><span class="icon">🌐</span><h3>DNS & IPAM Automation</h3></div>
-      <div class="focus-cell"><span class="icon">🔎</span><h3>Network Forensics</h3></div>
+    <div class="two-col">
+      <div class="col-sm">
+        <div class="sec-head">What I Do</div>
+        <div class="focus-col">
+          <div class="ftag">Protocol Reverse Engineering</div>
+          <div class="ftag">Malware Traffic Detection</div>
+          <div class="ftag">TLS Fingerprinting</div>
+          <div class="ftag">TCP/IP Stack Analysis</div>
+          <div class="ftag">DNS & IPAM Automation</div>
+          <div class="ftag">Network Forensics</div>
+        </div>
+      </div>
+      <div class="col-lg">
+        <div class="sec-head">Recent Deployments</div>
+        <div class="pub-grid">
+          <div class="pub-card">
+            <div class="pub-icon">📦</div>
+            <div class="pub-body">
+              <h3>dns-rfc-lint</h3>
+              <p>Python DNS zone file linter — validates records against RFC standards.</p>
+            </div>
+            <a href="https://pypi.org/project/dns-rfc-lint/" class="pub-link" target="_blank">
+              PyPI <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+            </a>
+          </div>
+          <div class="pub-card">
+            <div class="pub-icon">📦</div>
+            <div class="pub-body">
+              <h3>nfault</h3>
+              <p>Structured network error classification — 17 codes across DNS/TCP/TLS/HTTP.</p>
+            </div>
+            <a href="https://www.npmjs.com/package/nfault" class="pub-link" target="_blank">
+              npm <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+            </a>
+          </div>
+          <div class="pub-card">
+            <div class="pub-icon">🔧</div>
+            <div class="pub-body">
+              <h3>ldns — Open Source Contribution</h3>
+              <p>Bugfix PR for keytag+1 heuristic in ldns-signzone.</p>
+            </div>
+            <a href="https://github.com/NLnetLabs/ldns" class="pub-link" target="_blank">
+              GitHub <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
-
-<!-- ══════════ PROJECTS ══════════ -->
-<section style="padding-top:0">
+<!-- ═══════════════════ PROJECTS ═══════════════════ -->
+<section id="projects">
   <div class="wrap">
-    <div class="sec-label">Projects</div>
-    <div class="stats-row">
-      <div class="stat"><div class="stat-val">Java</div><div class="stat-key">Primary Language</div></div>
-      <div class="stat"><div class="stat-val">~15K</div><div class="stat-key">Lines of Code</div></div>
-      <div class="stat"><div class="stat-val">95%</div><div class="stat-key">Test Coverage</div></div>
-      <div class="stat"><div class="stat-val">4</div><div class="stat-key">Security Tools</div></div>
+    <div class="sec-head">Projects</div>
+    <div class="stats">
+      <div class="st"><strong>Java</strong><span>Primary Lang</span></div>
+      <div class="st"><strong>~15K</strong><span>Lines of Code</span></div>
+      <div class="st"><strong>95%</strong><span>Test Coverage</span></div>
+      <div class="st"><strong>4</strong><span>Security Tools</span></div>
     </div>
-    <div class="projects-grid">
-      <div class="proj">
-        <div class="proj-corner"></div>
-        <div class="proj-name">JA3 Malware Intelligence Engine</div>
-        <div class="proj-tagline">Passive TLS fingerprinting for C2 detection — zero decryption.</div>
-      </div>
-      <div class="proj">
-        <div class="proj-corner"></div>
-        <div class="proj-name">TCP/IP Fingerprinting Engine</div>
-        <div class="proj-tagline">OS identification from raw packet behavior alone.</div>
-      </div>
-      <div class="proj">
-        <div class="proj-corner"></div>
-        <div class="proj-name">Protocol Reverse Engineering Engine</div>
-        <div class="proj-tagline">Automated binary protocol inference from packet captures.</div>
-      </div>
-      <div class="proj">
-        <div class="proj-corner"></div>
-        <div class="proj-name">Enterprise DDI Platform</div>
-        <div class="proj-tagline">DNS/DHCP/IPAM — built to replace commercial solutions.</div>
-      </div>
+    <div class="pgrid">
+      <div class="pc"><h3>JA3 Malware Intelligence Engine</h3><p>Passive TLS fingerprinting for C2 detection — zero decryption.</p></div>
+      <div class="pc"><h3>TCP/IP Fingerprinting Engine</h3><p>OS identification from raw packet behavior alone.</p></div>
+      <div class="pc"><h3>Protocol Reverse Engineering Engine</h3><p>Automated binary protocol inference from packet captures.</p></div>
+      <div class="pc"><h3>Enterprise DDI Platform</h3><p>DNS/DHCP/IPAM — built to replace commercial solutions.</p></div>
     </div>
-    <div class="private-note">
-      🔒 Source code is private — live demos & architecture walkthroughs available on request.
-    </div>
+    <div class="pnote">🔒 Source code is private — live demos & walkthroughs available on request.</div>
   </div>
 </section>
 
-<!-- ══════════ SKILLS ══════════ -->
-<section>
-  <div class="wrap">
-    <div class="sec-label">Stack</div>
-    <div class="skills-flow">
-      <span class="skill">Java</span>
-      <span class="skill">Python</span>
-      <span class="skill">PostgreSQL</span>
-      <span class="skill">Bash</span>
-      <span class="skill">pcap4j</span>
-      <span class="skill">BIND9</span>
-      <span class="skill">Podman</span>
-      <span class="skill">WireGuard</span>
-      <span class="skill">BPF</span>
-      <span class="skill">Linux</span>
-    </div>
-  </div>
-</section>
-
-<!-- ══════════ FOOTER ══════════ -->
+<!-- ═══════════════════ FOOTER ═══════════════════ -->
 <footer>
   <div class="wrap">
-    <div class="foot-links">
-      <a href="https://github.com/YOUR_USERNAME" target="_blank">GitHub</a>
+    <div class="fl">
+      <a href="https://github.com/sage-s11" target="_blank">GitHub</a>
       <a href="https://leetcode.com/YOUR_USERNAME" target="_blank">LeetCode</a>
       <a href="https://linkedin.com/in/YOUR_USERNAME" target="_blank">LinkedIn</a>
       <a href="https://dev.to/YOUR_USERNAME" target="_blank">Dev.to</a>
       <a href="https://hashnode.com/@YOUR_USERNAME" target="_blank">Hashnode</a>
+      <a href="https://pypi.org/project/dns-rfc-lint/" target="_blank">PyPI</a>
       <a href="mailto:your@email.com">Email</a>
     </div>
-    <div class="foot-note">No frameworks were harmed.</div>
+    <div class="fn">No frameworks were harmed.</div>
   </div>
 </footer>
 </body>
